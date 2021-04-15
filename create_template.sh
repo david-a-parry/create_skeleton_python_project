@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-set -exou pipefail
+set -eou pipefail
 
 project_name=$1
 dir=$2
@@ -21,7 +21,7 @@ then
 fi
 
 echo $(date) Creating project directories at "$project_dir"
-mkdir -p $project_dir/{bin,$project_name}
+mkdir -p $project_dir/{bin,test,$project_name}
 
 echo $(date) Copying template files
 cp -vni ${source_dir}/templates/{__init__.py,version.py} $project_dir/$project_name
